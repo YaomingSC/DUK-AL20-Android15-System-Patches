@@ -1,0 +1,6 @@
+# Copyright (C) 2026 DUK-AL20 Android 15 GSI contributors
+# SPDX-License-Identifier: Apache-2.0
+# 将 NXP/TFA smart-PA 设备节点授权给 media 组。
+on post-fs-data && property:ro.product.vendor.device=hi3660
+    chown media media /dev/nxp_smartpa_dev
+    chmod 0660 /dev/nxp_smartpa_dev
