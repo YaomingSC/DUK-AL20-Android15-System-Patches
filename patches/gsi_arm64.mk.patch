@@ -1,0 +1,15 @@
+diff --git a/gsi_arm64.mk b/gsi_arm64.mk
+index ceb2e94..ff0833b 100644
+--- a/gsi_arm64.mk
++++ b/gsi_arm64.mk
+@@ -56,3 +56,10 @@ PRODUCT_NAME := gsi_arm64
+ PRODUCT_DEVICE := generic_arm64
+ PRODUCT_BRAND := Android
+ PRODUCT_MODEL := GSI on ARM64
++
++# DUK-AL20 Hi3660：在厂商图形 HAL 启动前关闭 AFBC。
++PRODUCT_COPY_FILES += device/generic/common/duk_al20_afbc_fix.rc:system/etc/init/duk_al20_afbc_fix.rc
++PRODUCT_COPY_FILES += device/generic/common/duk_al20_audio_node.rc:system/etc/init/duk_al20_audio_node.rc
++
++# Hi1102 组合无线模块关闭需要更长时间，将 init 默认 6 秒关机窗口延长。
++PRODUCT_SYSTEM_PROPERTIES += ro.build.shutdown_timeout=45
