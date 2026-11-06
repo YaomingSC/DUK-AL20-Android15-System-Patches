@@ -1,0 +1,6 @@
+# Copyright (C) 2026 DUK-AL20 Android 15 GSI contributors
+# SPDX-License-Identifier: Apache-2.0
+# Hi3660 厂商 gralloc 在服务启动时读取此属性。
+# 尽早关闭 AFBC，避免 DUK-AL20 上观察到的画面异常。
+on early-init
+    setprop vendor.debug.gralloc_afbc 0
